@@ -6,7 +6,21 @@ body {
 
 #container {
     width: 360px;
-    height: 712px;
     border: 1px solid white;
+    margin: auto;
+}
+
+/* Todos os elementos inline vao aceitar que o pai
+use a propriedade text-align: */
+
+#profile {
+    text-align: center;
+}
+
+#profile img {
+    width: 112px;
+    border-radius: 50%;
+    border: 2px solid gray;
+    /* display: block; */
     margin: auto;
 }
