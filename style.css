@@ -21,28 +21,30 @@
 
 .light {
     --text-color: black;
-    --bg-url: url(./assets/bg-desktop-light.jpg);
+    --bg-url: url(./assets/bg-mobile-light.jpg);
     --stroke-color: rgba(0, 0, 0, 0.5);
     --surface-color: rgba(0, 0, 0, 0.05);
     --surface-color-hover: rgba(0, 0, 0, 0.02 );
     --highlight-color: rgba(0, 0, 0, 0.1);
     --switch-button: url(./assets/sun.svg);
-
 }
 
 body * {
     font-family: 'Inter', sans-serif;
     color: var(--text-color);
+    transition: color .2s;
 }
 
 body {
     background:  black var(--bg-url) no-repeat center/cover;
     height: 100vh;
     overflow: hidden;
+    transition: background .2s;
 }
 
 #container {
-    width: 360px;
+    width: 100%;
+    max-width: 450px;
     margin: 56px auto 0px;
     padding: 0 24px;
 }
@@ -95,13 +97,12 @@ use a propriedade text-align: */
     z-index: 1;
     transform: translateY(-50%);
     top: 50%;
-
+    animation: slide-back .4s;
 }
 
 .light #switch button {
 
-    right: 0;
-    left: initial;
+    animation: slide-in .4s forwards;
 
 }
 
@@ -115,6 +116,10 @@ use a propriedade text-align: */
     backdrop-filter: blur(4px);
     border-radius: 9999px;
 
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color);
 }
 
 
@@ -182,4 +187,37 @@ ul li a:hover {
 footer{
     padding: 24px;
     text-align: center;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (min-width: 700px) {
+    :root {
+        --bg-url: url(./assets/bg-desktop.jpg)
+    }
+
+    .light {
+        --bg-url: url(./assets/bg-desktop-light.jpg)
+    }
+}
+
+/* Animacoes */
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
+    }
 }
